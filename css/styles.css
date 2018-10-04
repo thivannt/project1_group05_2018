@@ -344,6 +344,19 @@ a{
 	
 
 }
+@media (max-width:480px)
+{
+	.content-sec2.sec3 > div.d-flex.mt-3{
+		display: initial !important;
+	}
+
+	.content-sec2.sec3 > div.d-flex.mt-3 img {
+	    width: 100%;
+	}
+	.sec2-b-content{
+		margin-left:0 !important;
+	}
+}
 @media (max-width: 575.98px){
 
 		*{
