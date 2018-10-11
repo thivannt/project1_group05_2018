@@ -3,6 +3,54 @@
 	margin:0;
 }
 
+.footer-producer {
+    background-color: #0D0D0D;
+   padding:8px 0;
+}
+
+.f-icon a {
+    color: white !important;
+    background-color: #292929;
+    border: 1px solid gray;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-right:10px;
+    cursor: pointer;
+}
+.f-icon a:nth-child(1):hover{
+	color:#516EAB !important;
+}
+.f-icon a:nth-child(2):hover{
+	color:#55ACEE !important;
+}
+.f-icon a:nth-child(3):hover{
+	color:gray !important;
+}
+.f-icon a:nth-child(4):hover{
+	color:#DD4B39 !important;
+}
+
+p.f-contact {
+    font-size: 14px;
+}
+
+p.f-center-content {
+    font-size: 14px;
+}
+
+h5.f-title {
+    text-transform: uppercase;
+    font-size: 17px;
+    color: white;
+}
+
+.f-center {
+    color: white;
+}
+
 .scroll-top {
     position: fixed;
     bottom: 0;
@@ -29,6 +77,7 @@
 .icon-follow {
     background-color: #516EAB;
     color: white;
+    box-shadow: 0 10px 6px -6px #77777787;
 }
 
 
@@ -42,6 +91,7 @@
 .title-sec2-bot {
     font-size: 15px;
     font-weight: 900;
+    color:black;
 
 }
 
@@ -265,6 +315,8 @@ h5.title-sec2 {
 	font-size: 16px;
 	margin-top: 10px;
 	cursor: pointer;
+	color:black;
+	font-weight:900;
 }
 .brline:after{
 	content: '';
@@ -391,3 +443,13 @@ h3.smal {
 .content-sec2.sec3{
 	border-top: 3px solid #0abde3;
 	}	
+/*footer*/
+footer{
+	background-color:#222222;
+	padding: 45px 0;
+	margin-top:30px;	
+}
+.footer-producer a{
+	font-size:15px;
+	color:white;
+}
