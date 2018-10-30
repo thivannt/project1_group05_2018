@@ -29,32 +29,30 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white rounded menu-center">
 		<div class="container">
-				  <a class="navbar-brand" href="<?= base_url() ?>new_controller"><img src="<?= base_url() ?>images/logo.png" height="50" alt=""></a>
+				  <a class="navbar-brand" href="<?= base_url() ?>home/home"><img src="<?= base_url() ?>images/logo.png" height="50" alt=""></a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				    <span class="navbar-toggler-icon"></span>
 				  </button>
 
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				    <ul class="navbar-nav ml-auto">
-				      <li class="nav-item active">
-				        <a class="nav-link" href="#">tin <span class="sr-only">(current)</span></a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">mobile</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">internet</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">khám phá</a>
-				      </li>
+				    <li class="nav-item">
+							        <a class="nav-link" href="<?= base_url() ?>home/home?>">Trang Chủ<span class="sr-only">(current)</span></a>
+							     </li>
+				    	<?php foreach ($category as $value): ?>
+				    		
+							     	 <li class="nav-item">
+								        <a class="nav-link" href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>"><?= $value['category_name'] ?></a>
+								      </li>
+								 
+				    	<?php endforeach ?>
 				      <li class="nav-item">
 				        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
 
 							<div class="card form-search">
 								
 									 	 <div class="card-body">
-										   	<form action="<?= base_url() ?>new_controller/search" method="get">
+										   	<form action="<?= base_url() ?>home/home/search" method="get">
 												  <div class="form-group input-group">
 												  
 												    <input type="text" class="form-control" id="formGroupExampleInput" name="keyword">
@@ -88,8 +86,8 @@
 								
 										<div class="col-lg-6">
 											<div class="sec2-top-b1">
-												<a href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" alt=""></a>
-												<a href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"class="sec2-title"><?= $value['title'] ?></a>
+												<a href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" alt=""></a>
+												<a href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"class="sec2-title"><?= $value['title'] ?></a>
 												<p class="time"><span class="date">by -</span><span class="tacgia"><?= $value['tacgia'] ?></span> <span class="date"><?= date('d/m/Y - G:i -A',$value['date']) ?></span>
 												<a href="" class="link-cate ins"><?= $value['category_name'] ?></a>
 												</p>
@@ -126,7 +124,7 @@
 						  	
 						    	<div class="d-flex mt-3 remove-flex">
 									
-									<a class="news-detail-img" href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
+									<a class="news-detail-img" href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
 									
 									<div class="sec2-b-content remove-ml">
 										<a href="" class="title-sec2-bot s-14"><?= $value['title'] ?></a>
@@ -197,7 +195,7 @@
 		<div class="row">
 				<div class="col-sm-4">
 					<div class="f-left">
-						 <a class="navbar-brand" href="<?= base_url() ?>new_controller"><img src="<?= base_url() ?>images/logo-footer.png"  alt=""></a>
+						 <a class="navbar-brand" href="<?= base_url() ?>home/home"><img src="<?= base_url() ?>images/logo-footer.png"  alt=""></a>
 					</div><!-- end f-left -->
 				</div>
 				<div class="col-sm-4">

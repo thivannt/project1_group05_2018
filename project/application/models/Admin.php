@@ -17,6 +17,13 @@ class Admin extends CI_Model {
 		return $this->db->get_where('login',$arr)->row();
 
 	}
+	public function getUser()
+	{
+		$this->db->select('*');
+		$result=$this->db->get('login');
+		$result=$result->result_array();
+		return $result;
+	}
 
 }
 

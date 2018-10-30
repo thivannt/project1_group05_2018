@@ -31,19 +31,36 @@
 
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				    <ul class="navbar-nav ml-auto">
-				      <li class="nav-item active">
-				        <a class="nav-link" href="#">tin <span class="sr-only">(current)</span></a>
-				      </li>
 				      <li class="nav-item">
-				        <a class="nav-link" href="#">mobile</a>
+							        <a class="nav-link" href="<?= base_url() ?>home/home?>">Trang Chủ<span class="sr-only">(current)</span></a>
+							     </li>
+				    	<?php foreach ($category as $value): ?>
+				    		
+							     	 <li class="nav-item">
+								        <a class="nav-link" href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>"><?= $value['category_name'] ?></a>
+								      </li>
+								 
+				    	<?php endforeach ?>
+				      <li class="nav-item">
+				        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
+
+							<div class="card form-search">
+								
+									 	 <div class="card-body">
+										   	<form action="<?= base_url() ?>home/home/search" method="get">
+												  <div class="form-group input-group">
+												  
+												    <input type="text" class="form-control" id="formGroupExampleInput" name="keyword">
+												    	 <div class="input-group-append">
+													    <button class="btn btn-outline-danger" type="submit">search</button>
+													  </div>
+												  </div>
+												 
+											</form>
+										</div>
+							 </div>
+						
 				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">internet</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">khám phá</a>
-				      </li>
-				     
 				     
 				    </ul>
 				  

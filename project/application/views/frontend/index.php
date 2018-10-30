@@ -30,32 +30,32 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-white rounded menu-center">
 		<div class="container">
-				  <a class="navbar-brand" href="#"><img src="images/logo.png" height="50" alt=""></a>
+				  <a class="navbar-brand" href="#"><img src="<?= base_url() ?>images/logo.png" height="50" alt=""></a>
 				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				    <span class="navbar-toggler-icon"></span>
 				  </button>
 
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				    <ul class="navbar-nav ml-auto">
-				      <li class="nav-item active">
-				        <a class="nav-link" href="#">tin <span class="sr-only">(current)</span></a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">mobile</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">internet</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">khám phá</a>
-				      </li>
+				    	 <li class="nav-item active">
+							        <a class="nav-link" href="<?= base_url() ?>home/home?>">Trang Chủ<span class="sr-only">(current)</span></a>
+							     </li>
+				    	<?php foreach ($category as $value): ?>
+				    		
+							     	 <li class="nav-item">
+								        <a class="nav-link" href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>"><?= $value['category_name'] ?></a>
+								      </li>
+								 
+				    	<?php endforeach ?>
+				     
+				      
 				        <li class="nav-item">
 				        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
 
 							<div class="card form-search">
 								
 									 	 <div class="card-body">
-										   	<form action="<?= base_url() ?>new_controller/search" method="get">
+										   	<form action="<?= base_url() ?>home/home/search" method="get">
 												  <div class="form-group input-group">
 												  
 												    <input type="text" class="form-control" id="formGroupExampleInput" name="keyword">
@@ -84,204 +84,33 @@
 </nav> <!--end navbar-->
 <!--section1-->
 <section >
-	<div class="container section1 d-flex">
-		<div class="left col-sm-4">
-			<div class="one-block">
-				<a href=""><img src="images/img1.jpg" class="img1" alt="" ></a>
-				<div class="content">
-					<a href="" class="link-cate">Iphone</a>
-					<h3 class="large">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div> <!--end 1 block-->
+	<div class="container section1">
+		<div class="d-flex flex-wrap w-100 h-50">
+			<?php foreach ($result as $value): ?>
+				<div class="col-sm-4 w-100 h-100">
+				<div class="one-block w-100 h-100" >
+					<a href="#" ><img src="<?= $value[0]['image'] ?>" alt="" ></a>
+					<div class="content">
+						<a href="<?= base_url() ?>home/home/tagdiv_category/<?= $value[0]['id_danhmuc'] ?>" class="link-cate"><?= $value[0]['category_name'] ?></a>
+						<h5 class="large"><a href="<?= base_url() ?>home/home/news_detail/<?= $value[0]['id_new'] ?>" class="hov text-light p-0 d-inline" ><?= $value[0]['title'] ?></a></h5>
+						
+					</div>
+					<p class="time first"><span class="date text-light">by -</span><span class="tacgia text-light"><?= $value[0]['tacgia'] ?></span> <span class="date text-light"><?= date('d/m/Y - G:i -A',$value[0]['date']) ?></span></p>
+					<a href="<?= base_url() ?>home/home/news_detail/<?= $value[0]['id_new'] ?>" class="link"></a>
+				</div> <!--end 1 block-->
+			</div>
+			<?php endforeach ?>
 			
-			<div class="one-block">
-				<img src="images/img2.jpg" class="img2" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Android</a>
-					<h3 class="smal">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-				
-		</div> <!--end left-->
-		<div class="center col-sm-4">
-			<div class="one-block">
-				<img src="images/img3.jpg" class="img3" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Reviews</a>
-					<h3 class="smal">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-			<div class="one-block">
-				<img src="images/img4.jpg" class="img4" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Photography</a>
-					<h3 class="smal">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-			<div class="one-block">
-				<img src="images/img5.jpg" class="img5" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Apple</a>
-					<h3 class="smal">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-		</div>
-		<div class="right col-sm-4">
-			<div class="one-block">
-				<img src="images/img6.jpg" class="img6" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Iphone</a>
-					<h3 class="smal">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-			<div class="one-block">
-				<img src="images/img7.jpg" class="img7" alt="" >
-				<div class="content">
-					<a href="" class="link-cate">Android</a>
-					<h3 class="large">Canon XC10 4K Digital Camcorder Is Out: Versatile And For Only $2,500</h3>
-				</div>
-			</div><!--end 1 block-->
-		</div>
+		</div>	
 	</div>
 </section> <!--end section1 -->
-<section class="section2">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8">
-					<h5 class="title-sec2">Android</h5>
-					<div class="content-sec2">
-						<div class="card-body">
-						<div class="sec2-top">
-							<div class="row">
-								<div class="col-lg-6">
-										<div class="sec2-top-b1">
-											<a href=""><img src="images/img2.jpg" alt=""></a>
-											<a href=""class="sec2-title">Robots helped inspire deep learning might become</a>
-											<p class="time">Armin Vans <span class="date">- May 4,2018</span></p>
-											<p class="sec2-content">Happy Sunday from Software Expand! In this week's edition of Feedback Loop, we talk about the future of Windows Phone, whether it makes sense...</p>
-										</div><!--end sec2-top-b1-->
-								</div>
-								<div class="col-lg-6">
-									<div class="sec2-top-b1">
-										<a href=""><img src="images/img8.jpg" alt=""></a>
-										<a href=""class="sec2-title">Robots helped inspire deep learning might become</a>
-										<p class="time">Armin Vans <span class="date">- May 4,2018</span></p>
-										<p class="sec2-content">Happy Sunday from Software Expand! In this week's edition of Feedback Loop, we talk about the future of Windows Phone, whether it makes sense...</p>
-									</div><!--end sec2-top-b1-->
-								</div>
-							</div>
-							
-							
-						</div><!--end sec2-top-->
-						<div class="sec2-bottom">
-							<div class="row">
-								
-								<div class="col-lg-6 d-flex mt-3">
-									
-									<a href=""><img src="images/img9.jpg" alt=""></a>
-									
-									<div class="sec2-b-content">
-										<a href="" class="title-sec2-bot">Audio Tour App Detour Steers You Away from the Typical Tourist...</a>
-										<br>
-										<span class="date">May 4, 2018</span>
-									</div>
-								</div> <!--end 1block-->
-								<div class="col-lg-6 d-flex mt-3">
-									
-										<a href=""><img src="images/img10.jpg" alt=""></a>
-									
-									<div class="sec2-b-content">
-										<a href="" class="title-sec2-bot">Audio Tour App Detour Steers You Away from the Typical Tourist...</a>
-										<br>
-										<span class="date">May 4, 2018</span>
-									</div>
-								</div> <!--end 1block-->
-								<div class="col-lg-6 d-flex mt-3">
-									
-										<a href=""><img src="images/img11.jpg" alt=""></a>
-									
-									<div class="sec2-b-content">
-										<a href="" class="title-sec2-bot">Audio Tour App Detour Steers You Away from the Typical Tourist...</a>
-										<br>
-										<span class="date">May 4, 2018</span>
-									</div>
-								</div> <!--end 1block-->
-								<div class="col-lg-6 d-flex mt-3">
-									
-										<a href=""><img src="images/img12.jpg" alt=""></a>
-									
-									<div class="sec2-b-content">
-										<a href="" class="title-sec2-bot">Audio Tour App Detour Steers You Away from the Typical Tourist...</a>
-										<br>
-										<span class="date">May 4, 2018</span>
-									</div>
-								</div> <!--end 1block-->
 
-							</div>
-							
-						</div><!--end sec2-bottom-->
-						</div>
-					</div><!--end content-sec2-->
-				</div>
-				<div class="col-md-4 fol">
-					
-						<h5 class="title-sec2">follow us</h5>
-						<div class="content-sec2">
-							<div class="card-body">
-							<div class="icon" style="margin-top:20px;">
-								
-								<div class="icon-follow">
-									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-facebook-f brline a-one "></a>
-									<span style="font-size:10px;">facebook</span>
-									
-									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
-								</div>
-								<div class="icon-follow mt-2">
-									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-twitter brline a-one"></a>
-									<span style="font-size:10px;">twitter</span>
-									
-									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
-								</div>
-								<div class="icon-follow mt-2">
-									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-github brline a-one"></a>
-									<span style="font-size:10px;">github</span>
-									
-									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
-								</div>
-								<div class="icon-follow mt-2">
-									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-google-plus-g brline a-one"></a>
-									<span style="font-size:10px;">googe plus</span>
-								
-									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
-								</div>
-								
-								
-
-								
-								
-							</div><!--end icon icon-follow-->
-							</div><!--end card-body-->
-						</div><!--end content-sec2-->
-													<!--page facebook-->
-							
-							<h5 class="title-sec2 mt-3">page</h5>
-									<div class="content-sec2">
-										<div class="card-body">
-								<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMark-Tuan-280829202535799%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=340&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="200" style="border:none;overflow:hidden;margin-top:20px;width:100%" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-								</div>
-							</div><!--end card-body-->
-					</div>
-				</div>
-
-		</div>
-	
-</section> <!--end section2-->
 <section class="section3 mt-4">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8">
 				
-				<h5 class="title-sec2 sec3">photography
+				<h5 class="title-sec2 sec3">Tin Tổng Hợp
 				</h5>
 				<div class="content-sec2 sec3 ">
 					<div class="card-body ajax-sec2">
@@ -290,10 +119,10 @@
 					
 						<div class="d-flex mt-3">
 										
-										<a href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" alt="" width='218' height='150'></a>
+										<a href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" alt="" width='218' height='150'></a>
 														
 										<div class="sec2-b-content">
-												<a href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>" class="title-sec2-bot"><?= $value['title'] ?></a>
+												<a href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>" class="title-sec2-bot"><?= $value['title'] ?></a>
 												<br>
 												<p class="time"><span class="date">by -</span><span class="tacgia"><?= $value['tacgia'] ?></span> <span class="date"><?= date('d/m/Y - G:i -A',$value['date']) ?></span></p>
 												
@@ -358,12 +187,61 @@
 				
 			</div><!--col-lg-8-->
 			<div class="col-lg-4">
+
+		
+				<div class="fol mb-4">
+						<h5 class="title-sec2">follow us</h5>
+						<div class="content-sec2">
+							<div class="card-body">
+							<div class="icon" style="margin-top:20px;">
+								
+								<div class="icon-follow">
+									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-facebook-f brline a-one "></a>
+									<span style="font-size:10px;">facebook</span>
+									
+									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
+								</div>
+								<div class="icon-follow mt-2">
+									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-twitter brline a-one"></a>
+									<span style="font-size:10px;">twitter</span>
+									
+									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
+								</div>
+								<div class="icon-follow mt-2">
+									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-github brline a-one"></a>
+									<span style="font-size:10px;">github</span>
+									
+									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
+								</div>
+								<div class="icon-follow mt-2">
+									<a href="https://www.facebook.com/kevjl.kjss" class="fab fa-google-plus-g brline a-one"></a>
+									<span style="font-size:10px;">googe plus</span>
+								
+									<a href="https://www.facebook.com/kevjl.kjss" class="a-two brline">Like</a>
+								</div>
+								
+								
+
+								
+								
+							</div><!--end icon icon-follow-->
+							</div><!--end card-body-->
+						</div><!--end content-sec2-->
+					</div>
+					<div class="mb-4">
+						<h5 class="title-sec2 mt-3">page</h5>
+									<div class="content-sec2">
+										<div class="card-body">
+								<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMark-Tuan-280829202535799%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=340&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="200" style="border:none;overflow:hidden;margin-top:20px;width:100%" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+								</div>
+							</div><!--end card-body-->
+					</div>
 				<div class="card mb-3" >
 					<h5 class="title-sec2 sec3 removesec">Category
 					</h5>
 					  <div class="card-body">
 					  	<?php foreach ($category as $value): ?>
-					  		<a href="<?= base_url() ?>new_controller/tagdiv_category/<?= $value['id_danhmuc'] ?>" class="category">
+					  		<a href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>" class="category">
 					  			<?= $value['category_name'] ?>
 					  		</a>
 					  	<?php endforeach ?>
@@ -381,7 +259,7 @@
 						  	
 						    	<div class="d-flex mt-3">
 									
-									<a href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
+									<a href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
 									
 									<div class="sec2-b-content">
 										<a href="" class="title-sec2-bot s-14"><?= $value['title'] ?></a>
@@ -393,6 +271,9 @@
 						  </div>
 					</div>
 				</div>
+
+
+
 			</div><!--end col-sm-4-->
 
 		</div><!--row-->
@@ -405,7 +286,7 @@
 		<div class="row">
 				<div class="col-sm-4">
 					<div class="f-left">
-						 <a class="navbar-brand" href="#"><img src="images/logo-footer.png"  alt=""></a>
+						 <a class="navbar-brand" href="#"><img src="<?= base_url() ?>images/logo-footer.png"  alt=""></a>
 					</div><!--end f-left-->
 				</div>
 				<div class="col-sm-4">
@@ -470,7 +351,7 @@
 			event.preventDefault();
 			var page=$(this).data('href')+1;
 			$.ajax({
-				url:'<?= base_url() ?>new_controller/page/'+page,
+				url:'<?= base_url() ?>home/home/page/'+page,
 				type: 'post',
 				dataType: 'json',
 				success:function(data)
@@ -520,10 +401,10 @@
 
 				content="<div class='d-flex mt-3'>";
 										
-				 content+="<a href='<?= base_url() ?>new_controller/news_detail/"+arr[index].id_new+" ?>'><img src='"+img+"' alt='' width='218' height='150'></a>";
+				 content+="<a href='<?= base_url() ?>home/home/news_detail/"+arr[index].id_new+" ?>'><img src='"+img+"' alt='' width='218' height='150'></a>";
 													
 				content+="	<div class='sec2-b-content'>";		
-				content+="<a href='<?= base_url() ?>new_controller/news_detail/"+arr[index].id_new+"?>' class='title-sec2-bot'>" ;
+				content+="<a href='<?= base_url() ?>home/home/news_detail/"+arr[index].id_new+"?>' class='title-sec2-bot'>" ;
 				content+=title;
 				content+="</a>";
 				content+="<br>"	;
@@ -599,7 +480,7 @@
 			
 		
 			$.ajax({
-				url:'<?= base_url() ?>new_controller/page/'+page,
+				url:'<?= base_url() ?>home/home/page/'+page,
 				type: 'post',
 				dataType: 'json',
 				success:function(data)
@@ -648,10 +529,10 @@
 
 				content="<div class='d-flex mt-3'>";
 										
-				 content+="<a href='<?= base_url() ?>new_controller/news_detail/"+arr[index].id_new+" ?>'><img src='"+img+"' alt='' width='218' height='150'></a>";
+				 content+="<a href='<?= base_url() ?>home/home/news_detail/"+arr[index].id_new+" ?>'><img src='"+img+"' alt='' width='218' height='150'></a>";
 													
 				content+="	<div class='sec2-b-content'>";		
-				content+="<a href='<?= base_url() ?>new_controller/news_detail/"+arr[index].id_new+" ?>' class='title-sec2-bot'>" ;
+				content+="<a href='<?= base_url() ?>home/home/news_detail/"+arr[index].id_new+" ?>' class='title-sec2-bot'>" ;
 				content+=title;
 				content+="</a>";
 				content+="<br>"	;

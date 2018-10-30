@@ -9,7 +9,7 @@ class New_model extends CI_Model {
 		parent::__construct();
 		
 	}
-
+//tạo danh mục cha con test
 	public function createPath($id, $except = null) {
 		$this->db->select('*');
 		$this->db->where('id_danhmuc', $id);
@@ -55,9 +55,9 @@ class New_model extends CI_Model {
 
 	}
 	//insert vào database
-	public function Insert($ten)
+	public function Insert($ten,$order)
 	{
-		$array=array('category_name'=>$ten);
+		$array=array('category_name'=>$ten,'sort_order'=>$order);
 		$this->db->insert('danhmuc', $array);
 		return $this->db->insert_id();
 
@@ -258,6 +258,28 @@ class New_model extends CI_Model {
 		$result=$result->result_array();
 		return $result;
 
+	}
+	//lấy tin mới nhất của 1 danh mục
+	public function layTinMoiNhatCua1DanhMuc()
+	{
+		 $i=0;
+		$arr=$this->GetDanhMuc();
+		foreach ($arr as $value) {
+			if($i<6)
+		{	$this->db->select('*');
+		$this->db->from('tintuc');
+		$this->db->where('tintuc.id_danhmuc', $value['id_danhmuc']);
+		$this->db->join('danhmuc', 'tintuc.id_danhmuc = danhmuc.id_danhmuc');
+		
+		$this->db->order_by('tintuc.date', 'desc');
+		$this->db->limit(1);
+		$result=$this->db->get();
+		$array[$i]=$result->result_array();
+		$i=$i+1;
+	}
+			
+		}
+		return $array;
 	}
 }
 

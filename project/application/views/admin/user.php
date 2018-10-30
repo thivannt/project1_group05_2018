@@ -68,65 +68,49 @@
 		</div>	
 	</div><!--end left-->
 	<div class="right">
-			<nav class="navbar navbar-light bg-light mb-4">
-			  <form  action="<?= base_url() ?>admin/comment/getAllComment" method="get" class="form-inline ml-auto">
-			    <input class="form-control mr-sm-2" type="search" placeholder="Search"  name="keyword">
-			    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">
-			  </form>
-			</nav>
+			
 			<div class="container">
 				<div class="row">
-					<?php foreach ($result as $value): ?>
-						
-					
-					<div class="col-sm-4 mb-3">
-						<div class="card-body">
-							<div class='d-flex mb-3'>
-								<img src='<?= base_url() ?>images/user.png' alt='' height='50'>
-														
-								<div class='sec2-b-content'>
-									<a href=''  class='title-sec2-bot'>
-										<?= $value['name'] ?>
-									</a>
-									<br>
-							
-									<p class='time mb-0'>
-							
-										 <span class='date'>
-											<?= date('d/m/Y - G:i -A',$value['date']) ?>
-										</span>
-									</p>
-									<p class='content-s3 mt-0'>					
-									<?= $value['content'] ?>						
-									</p>					
-								</div>	
-							</div>
-							<div class="icon">
-												<a href="<?= base_url() ?>admin/comment/deleteComment/<?= $value['id'] ?>">
-												<button type="button" class="btn btn-outline-danger fas fa-trash-alt"></button>
-												</a>
-												
-												<div class="reply">
-													<form action="<?= base_url() ?>admin/comment/updateReply/<?= $value['id'] ?>" method="post">
-														 <div class="form-group">
-														    <label for="exampleFormControlTextarea1">Trả lời</label>
-														    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="reply"></textarea>
-														  </div>
-														 
-													<button type="submit" class="btn btn-outline-danger">OK</button>
+					<div class="col-sm-12">
 
-													</form>
-													
-												</div>
+						<div class="card" >
+						<h5 class="card-title text-center">Thông tin admin</h5>
+						<div class="card-body">
+							<div class="row">
+						<?php foreach ($arr as $value): ?>
+							
+						
+							<div class="col-sm-6">
+								
+							   			<div class="card">
+										  <img class="card-img-top" src="<?= $value['image'] ?>" height="308" alt="Card image cap">
+										  <div class="card-body text-center">
+										    <h5 class="card-title">Tên: <?= $value['name'] ?></h5>
+										    <p class="card-text">Email: <?= $value['email'] ?></p>
+										    <p class="card-text">Số Điện Thoại:<?= $value['phone'] ?></p>
+										  
+										  </div>
+										  <img src="<?= $value['avatar'] ?>" height="100" width="100" alt="..." class="img-thumbnail rounded-circle position-absolute" style="top: 46%;">
+										</div>
+
+							 		
+							  	</div>
+							
+							<?php endforeach ?>
 							</div>
-							<hr>
+							</div>
 						</div>
-					</div>
-					<?php endforeach ?>
-				</div>
+
+					 </div>
+						
+							
+							
+							  
 			</div>
+		</div>
 	</div>
 </div>
+s
 <script>
 	var pathname = window.location.pathname;
 	var hostname=window.location.hostname;

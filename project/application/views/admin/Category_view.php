@@ -20,8 +20,8 @@
 			.right{
 				width:80%;	
 			}
-			.card .list-group-item:hover {
-			    background-color: #81ecec;
+			.card .list-group-item:hover,.active1 {
+			    background-color: #81ecec !important;
 			}
 			.card .list-group-item:hover a{
 			  text-decoration: none;
@@ -42,15 +42,15 @@
 			}
 	</style>
 	<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<!--link js-->
+	<script type="text/javascript" src="<?= base_url() ?>js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 	<!--link-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	
 </head>
 <body>
 	<div class="main">
@@ -62,18 +62,18 @@
 		  <div class="card-body">
 			   <ul class="list-group list-group-flush">
 			  
-			    <li class="list-group-item"> <a href=""><i class="fas fa-user-tie"></i> Thông tin Admin </a></li>
-			     <li class="list-group-item"><a href="<?= base_url() ?>new_controller/newManagement"><i class="fas fa-cog"></i> Quản lý tin</a></li>
-			    <li class="list-group-item"><a href="<?= base_url() ?>new_controller/GetData""><i class="far fa-list-alt"></i> Quản lý danh mục</a></li>
-			    <li class="list-group-item"><a href="<?= base_url() ?>comment/getAllComment""><i class="fas fa-comment"></i> Quản lý comment</a></li>
-			      <li class="list-group-item"><a href="<?= base_url() ?>admin/Dasboard/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+			   <li class="list-group-item"> <a href="<?= base_url() ?>admin/Dashboard/user"><i class="fas fa-user-tie"></i> Thông tin Admin </a></li>
+			     <li class="list-group-item"><a href="<?= base_url() ?>admin/new_controller/newManagement"><i class="fas fa-cog"></i> Quản lý tin</a></li>
+			    <li class="list-group-item"><a href="<?= base_url() ?>admin/new_controller/GetData""><i class="far fa-list-alt"></i> Quản lý danh mục</a></li>
+			    <li class="list-group-item"><a href="<?= base_url() ?>admin/comment/getAllComment""><i class="fas fa-comment"></i> Quản lý comment</a></li>
+			      <li class="list-group-item"><a href="<?= base_url() ?>admin/Dashboard/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
 			  </ul>
 		  </div>
 		</div>	
 	</div><!--end left-->
 	<div class="right">
 		<nav class="navbar navbar-light bg-light mb-4">
-	  <form  action="<?= base_url() ?>/new_controller/GetData" method="post" class="form-inline ml-auto">
+	  <form  action="<?= base_url() ?>admin/new_controller/GetData" method="post" class="form-inline ml-auto">
 	    <input class="form-control mr-sm-2" type="search" placeholder="Search"  name="keyword">
 	    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">
 	  </form>
@@ -86,6 +86,11 @@
 	     			<fieldset class="form-group">
 	     				
 	     				<input type="text" name="ten" class="form-control" id="tendm" placeholder="Tên danh mục">
+	     		
+	     			</fieldset>
+	     			<fieldset class="form-group">
+	     				
+	     				<input type="text" name="order" class="form-control" id="order" placeholder="số thứ tự hiển thị">
 	     		
 	     			</fieldset>
 	     			<fieldset class="form-group">
@@ -130,7 +135,22 @@
 	     </div>
 	    </div>
 	    </div>
+	    <script type="text/javascript" src="<?= base_url() ?>js/bootstrap.js"></script>
 	     <script>
+var pathname = window.location.pathname;
+	var hostname=window.location.hostname;
+	var link="http://"+hostname+":81"+pathname;
+console.log(link);
+
+		$('ul > li > a[href="'+link+'"]').parent().addClass('active1');
+						
+		/*var link_cate=$('.scroll a.link-cate.ins').attr('href');
+		if(link_cate)
+		{
+			console.log('abc');
+			$('.navbar-nav > li > a[href="'+link_cate+'"]').parent().addClass('active');
+		}*/
+	
 	     	//ajax update
 	     	//click vào edit
 	     		$('body').on('click', '#edit', function(event) { // lắng nghe toàn bộ phần tử được thêm vào
@@ -157,7 +177,7 @@
 
 
 						$.ajax({
-							url: '<?= base_url() ?>new_controller/updateById',
+							url: '<?= base_url() ?>admin/new_controller/updateById',
 							type: 'post',
 							dataType: 'json',
 							data: {id: id,ten:ten},
@@ -184,10 +204,10 @@
 
 	     		/* Act on the event */
 	     		$.ajax({
-	     			url: '<?= base_url() ?>new_controller/InsertData',
+	     			url: '<?= base_url() ?>admin/new_controller/InsertData',
 	     			type: 'post',
 	     			dataType: 'json',
-	     			data: {ten: $('#tendm').val()},
+	     			data: {ten: $('#tendm').val(),order:$('#order').val()},
 	     		})
 	     		.done(function() {
 	     			//console.log("success");
@@ -224,7 +244,7 @@
 				/* Act on the event */
 				var id=$(this).data('href');
 				$.ajax({
-					url: '<?= base_url() ?>new_controller/Delete/'+id,
+					url: '<?= base_url() ?>admin/new_controller/Delete/'+id,
 					type: 'post',
 					dataType: 'json',
 					

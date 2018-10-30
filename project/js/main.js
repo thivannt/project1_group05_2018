@@ -52,10 +52,20 @@ var tag1=1;
 							 event.preventDefault();
 						}
 	});
+	//nav link active			
+	var pathname = window.location.pathname;
+	var hostname=window.location.hostname;
+	var link="http://"+hostname+":81"+pathname;
+
+
+		$('.navbar-nav > li > a[href="'+link+'"]').parent().addClass('active');
 						
-						
-				
-	
+		var link_cate=$('.scroll a.link-cate.ins').attr('href');
+		if(link_cate)
+		{
+			console.log('abc');
+			$('.navbar-nav > li > a[href="'+link_cate+'"]').parent().addClass('active');
+		}
 	
 	
 })

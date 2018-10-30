@@ -22,7 +22,14 @@ class Dashboard extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('admin/login');
 	}
-
+	public function user(){
+		$this->load->model('Admin');
+		$result=$this->Admin->getUser();
+		$result=array('arr'=>$result);
+		$this->load->view('admin/user', $result, FALSE);
+	
+	
+	}
 }
 
 /* End of file Dashboard.php */

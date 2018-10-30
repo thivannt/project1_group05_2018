@@ -3,13 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sửa tin</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script type="text/javascript" src="<?= base_url() ?>js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
 	<!--link-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
 	<script src="<?= base_url('public') ?>/ckeditor/ckeditor.js"></script>
@@ -24,7 +19,7 @@
 							<h1 class="display-3">Sửa tin</h1>
 						
 						</div>
-				<form action="<?= base_url() ?>new_controller/updateTintuc" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url() ?>admin/new_controller/updateTintuc" method="post" enctype="multipart/form-data">
 					<?php foreach ($arrayEdit as $value): ?>
 						
 							<fieldset class="form-group">
@@ -91,6 +86,7 @@
 			</div>
 		</div>
 	</div>
+	 <script type="text/javascript" src="<?= base_url() ?>js/bootstrap.js"></script>
 	 <script>
                 // Replace the <textarea id="content"> with a CKEditor
                 // instance, using default configuration.

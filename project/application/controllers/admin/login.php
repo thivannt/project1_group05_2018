@@ -7,15 +7,18 @@ class login extends CI_Controller {
 		parent::__construct();
 		if($this->session->has_userdata('admin'))
 		{
-			redirect('admin/Dashboard');
+			redirect('admin/Dashboard/user');
 		}
 		$this->load->model('Admin');
 	}
 
 	public function index()
 	{	
-	
-		$this->load->view('admin/login');
+		$this->load->model('New_model');
+		$result=$this->New_model->GetDanhMuc();
+		$result=array('category'=>$result);
+		$this->load->view('admin/login', $result, FALSE);
+		
 
 	}
 	public function verify()
@@ -25,7 +28,7 @@ class login extends CI_Controller {
 		if($check)
 		{
 			$this->session->set_userdata('admin','1');
-			redirect('admin/Dashboard');
+			redirect('admin/Dashboard/user');
 		}
 		else{
 

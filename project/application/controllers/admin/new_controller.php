@@ -8,7 +8,7 @@ class  new_controller extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('New_model');
-		$this->limit_news=5;
+		$this->limit_news=20;
 
 		
 	}
@@ -17,51 +17,18 @@ class  new_controller extends CI_Controller {
 	public function index()
 	{
 
-		$result=$this->New_model->showNews($this->limit_news);
 		
-		$page=$this->New_model->calPage($this->limit_news); // tính số trang
-		$category=$this->New_model->GetDanhMuc();
-		$tinmoi=$this->New_model->laytinmoi();
-		
-		
-		
-		$result=array('arr'=>$result,'page'=>$page,'category'=>$category,'tinmoi'=>$tinmoi);
-		
-		$this->load->view('frontend/index', $result, FALSE);
 	}
-	public function search()
-	{
-		$keyword=$this->input->get('keyword');
-		$search=$this->New_model->Search($keyword);
-		$tinmoi=$this->New_model->laytinmoi();
-		$category=$this->New_model->GetDanhMuc();
-		$search=array('result'=>$search,'category'=>$category,'tinmoi'=>$tinmoi);
+	
 
-		$this->load->view('frontend/search', $search, FALSE);
-	}
-
-
-	//pagination
-	public function page($currentPage)
-	{
-			
-			$offset=($currentPage-1)*$this->limit_news;	//trang hiển thị bắt đầu từ vị trí
-			$result=$this->New_model->loadNewsOfPage($this->limit_news,$offset); // hiển thị
-			$page=$this->New_model->calPage($this->limit_news); // tính số trang
-
-			$result=array('arr'=>$result,'page'=>$page);
-			echo json_encode($result);
-			
-			//$this->load->view('frontend/index', $result, FALSE);
-	}
 
 	//gửi dữ liệu tới model
 	public function InsertData()
 	{
 		
 		$ten=$this->input->post('ten');
-		
-		echo json_encode($this->New_model->Insert($ten));
+		$order=$this->input->post('order');
+		echo json_encode($this->New_model->Insert($ten,$order));
 		
 	}
 	//lấy dữ liệu từ model truyền xuống view
@@ -71,7 +38,7 @@ class  new_controller extends CI_Controller {
 
 		$result=array('array_result'=>$result);
 		
-		$this->load->view('Category_view', $result, FALSE);
+		$this->load->view('admin/Category_view', $result, FALSE);
 	}
 	//lấy Id từ view truyền tới model
 	public function GetId($id)
@@ -108,7 +75,7 @@ class  new_controller extends CI_Controller {
 				
 		
 			$arr=array('array_result'=>$result,'listNews'=>$result2);
-			$this->load->view('new_view',$arr, FALSE);
+			$this->load->view('admin/new_view',$arr, FALSE);
 	}
 	//thêm tin
 	public function addNews()
@@ -167,11 +134,11 @@ class  new_controller extends CI_Controller {
 		$tacgia=$this->input->post('tacgia');
 		if($this->New_model->insertNews($title,$id_category,$content,$img,$desc,$tacgia))
 		{
-			$this->load->view('success');
+			$this->load->view('admin/success');
 		}
 		else
 		{
-			$this->load->view('erorr');
+			$this->load->view('admin/erorr');
 		}
 
 
@@ -181,12 +148,12 @@ class  new_controller extends CI_Controller {
 	{
 		if($this->New_model->deleteNew($id))
 		{
-			$this->load->view('success');
+			$this->load->view('admin/success');
 		}
 		else
 
 		{
-			$this->load->view('erorr');
+			$this->load->view('admin/erorr');
 		}
 	}
 	//get DatabyID
@@ -196,7 +163,7 @@ class  new_controller extends CI_Controller {
 		$category=$this->New_model->GetDanhMuc();
 
 		$arr=array('arrayEdit'=>$result,'arrayCategory'=>$category);
-		$this->load->view('EditTinTuc', $arr, FALSE);
+		$this->load->view('admin/EditTinTuc', $arr, FALSE);
 	}
 	public function updateTintuc()
 	{
@@ -271,41 +238,14 @@ class  new_controller extends CI_Controller {
 		$tacgia=$this->input->post('tacgia');
 		if($this->New_model->updateTin($id,$img,$title,$id_category,$content,$desc,$tacgia))
 		{
-			$this->load->view('success');
+			$this->load->view('admin/success');
 		}
 		else
 		{
-			$this->load->view('erorr');
+			$this->load->view('admin/erorr');
 		}
 	}
-//lay noi dung chi tiet tin
-	public function news_detail($id_new)
 
-	{	
-		$result=$this->New_model->getElementById($id_new);
-		
-		
-		$tinlienquan=$this->New_model->laytinlienquan($result[0]['id_danhmuc'],$id_new);
-		
-		$tinmoi=$this->New_model->laytinmoi();
-
-		$arr=$this->New_model->getDataFromTwoTableById($id_new);
-		$category=$this->New_model->GetDanhMuc();
-		$this->load->model('UserComment');
-		$comment=$this->UserComment->getComment($id_new);
-		$arr=array('result'=>$arr,'category'=>$category,'arr'=>$comment,'tinmoi'=>$tinmoi,'tinlienquan'=>$tinlienquan);
-		$this->load->view('frontend/news_detail', $arr, FALSE);
-	}
-//lấy nội dung tin thuộc danh mục tương ứng
-	public function tagdiv_category($id)
-	{
-		$tinmoi=$this->New_model->laytinmoi();
-		$arr=$this->New_model->getNewsfromCategory($id);
-		$category=$this->New_model->GetDanhMuc();
-		$arr=array('result'=>$arr,'category'=>$category,'tinmoi'=>$tinmoi);
-		$this->load->view('frontend/tagdiv_category', $arr, FALSE);
-
-	}
 	
 
 

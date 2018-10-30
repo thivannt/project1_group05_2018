@@ -36,18 +36,16 @@
 
 				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				    <ul class="navbar-nav ml-auto">
-				      <li class="nav-item active">
-				        <a class="nav-link" href="#">tin <span class="sr-only">(current)</span></a>
-				      </li>
-				      <li class="nav-item">
-				        <a class="nav-link" href="#">mobile</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">internet</a>
-				      </li>
-				        <li class="nav-item">
-				        <a class="nav-link" href="#">khám phá</a>
-				      </li>
+				    <li class="nav-item">
+							        <a class="nav-link" href="<?= base_url() ?>home/home?>">Trang Chủ<span class="sr-only">(current)</span></a>
+							     </li>
+				    	<?php foreach ($category as $value): ?>
+				    		
+							     	 <li class="nav-item">
+								        <a class="nav-link" href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>"><?= $value['category_name'] ?></a>
+								      </li>
+								 
+				    	<?php endforeach ?>
 				       <li class="nav-item">
 				        <a class="nav-link search" href="#"><i class="fas fa-search"></i></a>
 
