@@ -9,6 +9,24 @@ class New_model extends CI_Model {
 		parent::__construct();
 		
 	}
+	public function get_news_count($keyword)
+	{
+		 if ($keyword == "NIL") $keyword = "";
+       $this->db->select('*');
+		$this->db->from('tintuc');
+		if($keyword){
+
+			$this->db->like(('title'),$keyword);
+			$this->db->or_like(('description'),$keyword);
+			$this->db->or_like(('tacgia'),$keyword);
+		}
+        $arr=$this->db->get('');
+		$arr=$arr->result_array($arr);
+		/*echo '<pre>';
+		var_dump($arr);
+		die();*/
+		return count($arr);
+	}
 //tạo danh mục cha con test
 	public function createPath($id, $except = null) {
 		$this->db->select('*');
@@ -182,6 +200,7 @@ class New_model extends CI_Model {
 	{
 		$this->db->select('*');		
 		$this->db->from('tintuc');
+		$this->db->order_by('tintuc.id_new', 'desc');
 		$this->db->join('danhmuc', 'danhmuc.id_danhmuc = tintuc.id_danhmuc');
 		$result=$this->db->get('',$limit,0);
 		$result=$result->result_array();
@@ -199,6 +218,7 @@ class New_model extends CI_Model {
 	{
 		$this->db->select('*');		
 		$this->db->from('tintuc');
+		$this->db->order_by('tintuc.id_new', 'desc');
 		$this->db->join('danhmuc', 'danhmuc.id_danhmuc = tintuc.id_danhmuc');
 		$result=$this->db->get('',$limit,$offset);
 		$result=$result->result_array();

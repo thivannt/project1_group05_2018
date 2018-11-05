@@ -9,7 +9,7 @@ class  new_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('New_model');
 		$this->limit_news=20;
-
+		$this->load->library('pagination');
 		
 	}
 	
@@ -20,7 +20,23 @@ class  new_controller extends CI_Controller {
 		
 	}
 	
+	public function page()
+	{
 
+		
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+
+			
+	}
 
 	//gửi dữ liệu tới model
 	public function InsertData()
@@ -69,15 +85,63 @@ class  new_controller extends CI_Controller {
 
 
 //load danh mục vào tin
+	public function search()
+	{
+
+		 $search = ($this->input->get("keyword"))? $this->input->get("keyword") : "NIL";
+		
+
+ /* echo site_url("new_controller/search/$search"); 
+ $this->New_model->get_news_count($search);
+ die();*/
+		   
+$data['result'] = $this->New_model->Search($search);
+$arr=array('pani'=>$data);
+$this->load->view('admin/search_view', $arr, FALSE);
+	}
 	public function newManagement()
 	{		$result=$this->New_model->GetDanhMuc();
 			$result2=$this->New_model->getNews();
 				
-		
-			$arr=array('array_result'=>$result,'listNews'=>$result2);
+			$config['base_url'] = base_url().'admin/new_controller/newManagement/';   
+$config['total_rows'] =$this->New_model->sumNews(); 
+$config['per_page'] = 3;     
+$config['use_page_numbers'] = TRUE;     
+$config['full_tag_open'] = '<ul class="pagination">';        
+$config['full_tag_close'] = '</ul>';  
+$config['attributes'] = array('class' => 'page-link');   
+$config['first_link'] = 'First';        
+$config['last_link'] = 'Last';   
+$config['first_tag_open'] = '<li>';        
+$config['first_tag_close'] = '</li>';        
+$config['prev_link'] = '&laquo';        
+$config['prev_tag_open'] = '<li class="prev">';        
+$config['prev_tag_close'] = '</li>';        
+$config['next_link'] = '&raquo';        
+$config['next_tag_open'] = '<li>';        
+$config['next_tag_close'] = '</li>';        
+$config['last_tag_open'] = '<li>';        
+$config['last_tag_close'] = '</li>';        
+$config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';        
+$config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';        
+$config['num_tag_open'] = '<li>';
+$config['num_tag_close'] = '</li>';
+
+$start = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+$this->pagination->initialize($config);        
+$data['links'] = $this->pagination->create_links();     
+$data['result'] = $this->New_model->loadNewsOfPage($config['per_page'],$start); 
+			$arr=array('array_result'=>$result,'listNews'=>$result2,'pani'=>$data);
 			$this->load->view('admin/new_view',$arr, FALSE);
 	}
 	//thêm tin
+	public function add()
+
+	{
+		$result=$this->New_model->GetDanhMuc();
+		$result=array('array_result'=>$result);
+		$this->load->view('admin/add_new',$result,false);
+	}
 	public function addNews()
 	{
 		//xử lý upload file

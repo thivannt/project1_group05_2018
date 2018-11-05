@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
 	<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
 	<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
-	
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	 <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
+	<!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  -->
 	<!--font-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet">
 	

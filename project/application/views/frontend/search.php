@@ -10,9 +10,10 @@
 	<link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
 	<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
 	<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
-	
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	 <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
+	 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  -->
 	<!--font-->
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet">
 	
 </head>
@@ -73,20 +74,7 @@
 				 </div> <!-- end container -->
 </nav> <!--end navbar-->
 <!--section1-->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<div class="form-group input-group">
-							<?php  $keyword ?>					  
-				 <input type="text" class="form-control" id="formGroupExampleInput" name="keyword" 
-				 value="<?php echo isset($keyword)? $keyword :'' ?>">
-				 <div class="input-group-append">
-				<button class="btn btn-outline-danger" type="submit">search</button>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
+	
 	<div class="container scroll">
 		<div class="row">
 			<div class="col-md-8 mt-4">
@@ -121,7 +109,7 @@
 					</h5>
 					  <div class="card-body">
 					  	<?php foreach ($category as $value): ?>
-					  		<a href="<?= base_url() ?>new_controller/tagdiv_category/<?= $value['id_danhmuc'] ?>" class="category">
+					  		<a href="<?= base_url() ?>home/home/tagdiv_category/<?= $value['id_danhmuc'] ?>" class="category">
 					  			<?= $value['category_name'] ?>
 					  		</a>
 					  	<?php endforeach ?>
@@ -137,7 +125,7 @@
 						  	
 						    	<div class="d-flex mt-3 remove-flex">
 									
-									<a class="news-detail-img" href="<?= base_url() ?>new_controller/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
+									<a class="news-detail-img" href="<?= base_url() ?>home/home/news_detail/<?= $value['id_new'] ?>"><img src="<?= $value['image'] ?>" width="130" height="100" alt=""></a>
 									
 									<div class="sec2-b-content remove-ml">
 										<a href="" class="title-sec2-bot s-14"><?= $value['title'] ?></a>

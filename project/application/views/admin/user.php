@@ -43,9 +43,17 @@
 			a{
 				color:black !important;
 			}
-			body, html, .left {
+			body, html {
+				width:100%;
 			    height: 100%;
 			}
+			.left{
+				width:25%;
+			}
+			.right {
+		    position: relative;
+		    width: 75%;
+		}
 	</style>
 </head>
 <body>

@@ -39,19 +39,41 @@
 			a{
 				color:black !important;
 			}
-			body, html, .left {
+			body, html {
+				width:100%;
 			    height: 100%;
 			}
+			.left{
+				width:25%;
+			}
+			.right {
+		    position: relative;
+		    width: 75%;
+		}
 	</style>
 	<script type="text/javascript" src="<?= base_url() ?>js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
+ <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
 	<!--link-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> --> 
 	<script src="<?= base_url('public') ?>/ckeditor/ckeditor.js"></script>
 	<script src="<?= base_url('public') ?>/ckfinder/ckfinder.js"></script>
 
 </head>
 <body>
+<?php 
+/*echo '<pre>';
+var_dump( $pani['result']);*/
+
+/*foreach ($pani['result'] as $value) {
+echo '<pre>';
+		var_dump($value['id_new']);
+
+	
+}*/
+
+
+ ?>
 <div class="main">
 	<div class="left">
 		<div class="card">
@@ -70,70 +92,37 @@
 		</div>	
 	</div><!--end left-->
 <div class="right">
+
 	<nav class="navbar navbar-light bg-light mb-4">
-	  <form  action="<?= base_url() ?>admin/new_controller/newManagement" method="post" class="form-inline ml-auto">
+		<a href="<?= base_url() ?>admin/new_controller/add">
+													<button type="button" class="btn btn-outline-danger fas fa-plus"></button>
+												</a>
+	  <form  action="<?= base_url() ?>admin/new_controller/search" method="get" class="form-inline ml-auto">
 	    <input class="form-control mr-sm-2" type="search" placeholder="Search"  name="keyword">
 	    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="search">
 	  </form>
 	</nav>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-6">
-						<h5 class="card-header bg-primary text-light mb-4">Thêm Tin</h5>
-						<form action="<?= base_url() ?>admin/new_controller/addNews" method="post" enctype="multipart/form-data">
-							<fieldset class="form-group">
-								<label for="formGroupExampleInput">Tiêu đề tin</label>
-								<input type="text" class="form-control" id="title" placeholder="Tiêu đề" name="title" >
-							</fieldset>
-							<fieldset class="form-group">
-								<label for="formGroupExampleInput">Ảnh Tin</label>
-								<input type="file" class="form-control" id="img" name="image" >
-							</fieldset>
-							<fieldset class="form-group">
-								<label for="formGroupExampleInput">Trích dẫn</label>
-								<textarea name="desc" id="" cols="30" rows="10"></textarea>
-							</fieldset>
-							<fieldset class="form-group">
-								<select name="category" id="">
-								<?php foreach ($array_result as $value): ?>
-									<option value="<?= $value['id_danhmuc'] ?>"><?= $value['category_name'] ?></option>
-											  
-								<?php endforeach ?>
-											    
-											 
-								</select>
-								
-							</fieldset>
-							<fieldset class="form-group">
-								<label for="formGroupExampleInput"> Người đăng</label>
-								<input type="text" class="form-control" id="tacgia" placeholder="Tên Người đăng" name="tacgia" >
-							</fieldset>
-							<fieldset class="form-group">
-								<label for="formGroupExampleInput">Nội dung tin</label>
-								<textarea name="content" id="content"  cols="30" rows="10"></textarea>
-							</fieldset>
-
-							<fieldset class="form-group">
-								
-								<input type="submit" class="form-control btn btn-outline-danger" id="submit" value="Thêm tin">
-							</fieldset>
-						</form>
-			</div><!--end cot trai-->
-			<div class="col-sm-6">
+				
+			 <div class="col-sm-12">
 					
 						
 						<h5 class="card-header bg-primary text-light mb-4">Danh sách tin</h5>
 						
-						<div class="row">
-								<div class="card-group">
-									<?php foreach ($listNews as $value): ?>
-										<div class="col-sm-12">
-										<div class="card">
+						
+								
+					<div class="row">
+									
+						<?php	foreach ($pani['result'] as $value): ?> 
+									<div class="col-sm-4">
+
+										<div class="card h-100">
 											
 												<img class="card-img-top img-fluid" src="<?= $value['image'] ?>" alt="Card image cap">
 												<div class="card-block">
-													<h4 class="card-title"><?= $value['title'] ?></h4>
-													<p class="card-text"><?= $value['description'] ?></p>
+													<h4 class="card-title" style="font-size:14px"><?= $value['title'] ?></h4>
+													<p class="card-text" style="font-size:14px"><?= $value['description'] ?></p>
 													<p class="card-text"><small class="text-muted"><?= date('d/m/Y - G:i -A',$value['date']) ?></small></p>
 													<p class="card-text"> <?= $value['tacgia'] ?></p>
 												</div>
@@ -144,18 +133,23 @@
 												<a href="<?= base_url() ?>admin/new_controller/editNews/<?= $value['id_new'] ?>">
 													<button type="button" class="btn btn-outline-danger fas fa-pen"></button>
 												</a>
+												
+												
 												</div>
 										</div>
 									</div>
 									<?php endforeach ?>
-							
+									<div style="margin-top:20px;margin-left:15px;">
+									<?= $pani['links'] ?>
 								</div>
-						</div><!--end row-->
+							
+							</div>
+					
 						
-			</div>
+			</div> 
+		</div>
 		</div>
 	</div>
-</div>
 </div>
  <script>
                 // Replace the <textarea id="content"> with a CKEditor

@@ -37,9 +37,17 @@
 			a{
 				color:black !important;
 			}
-			body, html, .left {
+			body, html {
+				width:100%;
 			    height: 100%;
 			}
+			.left{
+				width:25%;
+			}
+			.right {
+		    position: relative;
+		    width: 75%;
+		}
 	</style>
 	<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
 	<!--link js-->
@@ -49,7 +57,8 @@
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 	<!--link-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	 <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  -->
 	
 </head>
 <body>
@@ -115,7 +124,7 @@
 		     						
 		     						<input type="text" id="u-name" value="<?= $value['category_name'] ?>" class="d-none">
 		     						<a data-href="<?= $value['id_danhmuc'] ?>" class="fas fa-pen btn btn-info" id="edit"> </a>
-		     						<a data-href="<?= $value['id_danhmuc'] ?>" class="fas fa-trash-alt btn btn-warning" id="delete"></a>
+		     						<a data-href="<?= $value['id_danhmuc'] ?>" class="fas fa-trash-alt btn btn-warning" id="delete"> </a>
 		     						<a data-href="<?= $value['id_danhmuc'] ?>" class="fas fa-check btn btn-primary d-none" id="save">Save</a>
 		     						
 		     					</div>

@@ -8,10 +8,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- link css -->
 	<link rel="stylesheet" href="<?= base_url() ?>css/styles.css">
-	<!-- <link rel="stylesheet" href="css/fontawesome.css"> -->
+	  <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
 	<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
 	
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	<!--   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">   -->
 	<!--font-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet">
 
@@ -232,8 +232,9 @@
 						<h5 class="title-sec2 mt-3">page</h5>
 									<div class="content-sec2">
 										<div class="card-body">
-								<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMark-Tuan-280829202535799%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=340&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="200" style="border:none;overflow:hidden;margin-top:20px;width:100%" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-								</div>
+											<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTech-News-326293971516733%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1143216899188232" height="200" style="border:none;overflow:hidden;width:100%;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+										</div>
+								
 							</div><!--end card-body-->
 					</div>
 				<div class="card mb-3" >

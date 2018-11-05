@@ -5,11 +5,19 @@
 	<title>Admin</title>
 	<link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
 	<script type="text/javascript" src="<?= base_url() ?>js/jquery-3.3.1.min.js"></script>
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	 <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
+	<!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> --> 
 	<!--font-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet">
 	<script type="text/javascript" src="<?= base_url() ?>js/bootstrap.js"></script>
 	<style>
+	.left{
+				width:25%;
+			}
+			.right {
+		    position: relative;
+		    width: 75%;
+		}
 	.main{
 			display:flex;
 			height:100%;
@@ -43,7 +51,8 @@
 			a{
 				color:black !important;
 			}
-			body, html, .left {
+			body, html {
+				width:100%;
 			    height: 100%;
 			}
 	</style>

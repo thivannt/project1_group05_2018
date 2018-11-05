@@ -6,7 +6,8 @@
 		<script type="text/javascript" src="<?= base_url() ?>js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="<?= base_url() ?>css/bootstrap.css">
 	<!--link-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+	 <link rel="stylesheet" href="<?= base_url() ?>fonts/css/all.css">  
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">  -->
 	<script src="<?= base_url('public') ?>/ckeditor/ckeditor.js"></script>
 	<script src="<?= base_url('public') ?>/ckfinder/ckfinder.js"></script>
 </head>
@@ -14,16 +15,15 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-10">
-						<div class="jumbotron">
-							<h1 class="display-3">Sửa tin</h1>
-						
-						</div>
+			<div class="col-sm-12">
+						<div class="card">
+								<div class="card-header text-center">Sửa tin tức</div>
+								<div class="card-body">
 				<form action="<?= base_url() ?>admin/new_controller/updateTintuc" method="post" enctype="multipart/form-data">
 					<?php foreach ($arrayEdit as $value): ?>
-						
-							<fieldset class="form-group">
-								
+						<div class="form-row">
+							<div class="col">
+								<fieldset class="form-group">
 								<input type="hidden" class="form-control" id="id"  name="id" value="<?= $value['id_new'] ?>" >
 							</fieldset>
 							<fieldset class="form-group">
@@ -68,6 +68,8 @@
 								<label for="formGroupExampleInput">Người Đăng</label>
 								<input type="text" class="form-control" id="tacgia"  name="tacgia" value="<?= $value['tacgia'] ?>" >
 							</fieldset>
+						</div>
+					<div class="col">
 							<fieldset class="form-group">
 								<label for="formGroupExampleInput">Nội dung tin</label>
 								<textarea name="content" id="content"  cols="30" rows="10">
@@ -76,7 +78,8 @@
 
 								</textarea>
 							</fieldset>
-
+					</div>
+				</div>
 							<fieldset class="form-group">
 								
 								<input type="submit" class="form-control btn btn-success" id="submit" value="Sửa tin">
